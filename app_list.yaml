@@ -1,0 +1,14 @@
+apps:
+    - spotify: https://www.spotify.com/us/download/mac/
+    - eqMac: https://eqmac.app/
+    - rectangle: https://rectangleapp.com/
+    - vscode: https://code.visualstudio.com/
+    - iterm2: https://iterm2.com/downloads.html
+    - docker desktop: https://www.docker.com/products/docker-desktop
+    - postman: https://www.postman.com/downloads/
+    - pgAdmin4: https://www.pgadmin.org/download/pgadmin-4-macos/
+    - Miro: https://miro.com/apps/
+    - notion: https://www.notion.so/desktop
+    - slack: https://slack.com/downloads/mac
+
+setup_guide: https://gist.github.com/ganapativs/e571d9287cb74121d41bfe75a0c864d7
