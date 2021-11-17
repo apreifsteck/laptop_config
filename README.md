@@ -2,6 +2,12 @@
 
 A repo with all the files needed to configure a new laptop
 
+## Steps
+
+1.  Install every app in `apps_list.yaml`
+2.  run `setup.sh`
+3.  import your settings into iterm2
+
 ## Iterm2
 
 `com.googlecode.iterm2.plist` is your profile settings
