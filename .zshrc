@@ -126,12 +126,3 @@ ZSH_THEME=""
 autoload -U promptinit; promptinit
 prompt pure
 
-# For platform/dev
-export PLATFORM_DEV=/Users/austin.reifsteck/Documents/repos/external/dev_platform
-shovel() ( $PLATFORM_DEV/script/run shovel "$@"; )
-
-# for autocomplete of the 'shovel run' cmd
-fpath=($PLATFORM_DEV/misc/completion/ $fpath)
-autoload -U compinit && compinit 
-
-# End for platform/dev

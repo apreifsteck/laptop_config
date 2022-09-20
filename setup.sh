@@ -1,8 +1,27 @@
 #!/bin/bash
 
+# -e: will raise an exception on error
+# -u: will not allow undefined variables
+# -o pipefail: if something fails in a pipeline that will be the return code for the whole pipeline
+set -euo pipefail
+# Something to do with how bash separates words
+IFS=$'\n\t'
+
+
+program_in_path () {
+    local prog_name=$1
+    if which $prog_name > /dev/null; then
+        # echo "package $prog_name exists"
+        return 0
+    else
+        # echo "package $prog_name does not exist"
+        return 1
+    fi
+}
+
 package_exists () {
     local package_name=$1
-    if which $package_name > /dev/null; then
+    if brew list | grep -w $package_name > /dev/null; then
         # echo "package $package_name exists"
         return 0
     else
@@ -22,7 +41,7 @@ install_package() {
 }
 
 # Bootstrapper; install brew
-if ! package_exists "brew"; then
+if ! program_in_path "brew"; then
     echo "installing brew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
@@ -37,8 +56,8 @@ packages=(
     "pure"
     "neovim"
     "postgresql"
-    "zsh-syntax-highlighting"
-    "zsh-autosuggestions"
+#    "zsh-syntax-highlighting"
+#    "zsh-autosuggestions"
 )
 
 for package in "${packages[@]}"
@@ -46,19 +65,39 @@ do
     install_package $package
 done
 
+echo "installing kitty terminal"
+if ! program_in_path "kitty"; then
+	curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+else
+	echo "kitty already installed"
+fi
+
 # install oh-my zsh
 echo "installing oh-my zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cp ./zshrc ~./
+if [ -z $ZSH ]; then
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+	echo "ZSH already installed"
+fi
+
+echo "linking .zshrc"
+set +e
+if ! ln .zshrc ~/; then
+	echo "Could not link zsh because it is already linked or present in home dir"
+fi
+set -e
+
 
 # install Fira Code Fonts
 echo "installing fonts"
-fonts_loc="fonts.zip"
-curl -o $fonts_loc https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip
-fonts_out="fonts"
-unzip $fonts_loc -d $fonts_out
-cp $fonts_out/ttf/* ~/Library/Fonts/
-rm -rf $fonts_loc $fonts_out
+fonts_dir="fonts"
+version=5.2
+zip=Fira_Code_v${version}.zip
+curl --fail --location --show-error https://github.com/tonsky/FiraCode/releases/download/${version}/${zip} --output ${zip}
+unzip -o -q -d ${fonts_dir} ${zip}
+rm ${zip}
+cp $fonts_dir/ttf/* ~/Library/Fonts/
+rm -rf $fonts_dir 
 
 # install powerline fonts
 # clone
@@ -70,17 +109,17 @@ cd fonts
 cd ..
 rm -rf fonts
 
-echo "downloading snazzy theme for iterm2"
-echo "double click it in finder to install I guess"
-curl -o snazzy_theme.itermcolors https://github.com/sindresorhus/iterm2-snazzy/raw/main/Snazzy.itermcolors
 
 # install some plugins
+set +e
+echo $ZSH
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+set -e
 
-package_name="pip3"
-if ! package_exists $package_name; then
+prog_name="pip3"
+if ! program_in_path $prog_name; then
     echo "installing python before attempting to install pygments"
 else
     pip3 install pygments

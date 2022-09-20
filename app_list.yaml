@@ -1,13 +1,11 @@
 apps:
+    - 1Password: https://downloads.1password.com/mac/1Password.zip
     - spotify: https://www.spotify.com/us/download/mac/
     - eqMac: https://eqmac.app/
     - rectangle: https://rectangleapp.com/
-    - vscode: https://code.visualstudio.com/
-    - iterm2: https://iterm2.com/downloads.html
     - docker desktop: https://www.docker.com/products/docker-desktop
     - postman: https://www.postman.com/downloads/
     - pgAdmin4: https://www.pgadmin.org/download/pgadmin-4-macos/
     - Miro: https://miro.com/apps/
-    - notion: https://www.notion.so/desktop
+    - clickup: https://desktop.clickup.com/mac/dmg/arm64
     - slack: https://slack.com/downloads/mac
-    - python: https://www.python.org/downloads/
