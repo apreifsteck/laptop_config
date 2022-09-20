@@ -35,6 +35,10 @@ packages=(
     "z"
     "trash"
     "pure"
+    "neovim"
+    "postgresql"
+    "zsh-syntax-highlighting"
+    "zsh-autosuggestions"
 )
 
 for package in "${packages[@]}"

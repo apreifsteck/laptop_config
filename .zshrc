@@ -117,6 +117,9 @@ export PGDATA=$HOME/Documents/pgdata
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias el=elixir
 alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Command}}\t{{.Image}}"'
+alias mt="mix test"
+alias mtw="fswatch lib test mix test --listen-on-stdin"
+alias vim=nvim
 
 ZSH_THEME=""
 
