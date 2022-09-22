@@ -56,8 +56,9 @@ packages=(
     "pure"
     "neovim"
     "postgresql"
-#    "zsh-syntax-highlighting"
-#    "zsh-autosuggestions"
+    "ripgrep"
+    "fswatch"
+    "fish"
 )
 
 for package in "${packages[@]}"
@@ -109,15 +110,6 @@ cd fonts
 cd ..
 rm -rf fonts
 
-
-# install some plugins
-set +e
-echo $ZSH
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-set -e
-
 prog_name="pip3"
 if ! program_in_path $prog_name; then
     echo "installing python before attempting to install pygments"
@@ -125,5 +117,5 @@ else
     pip3 install pygments
 fi
 
-source ~/.zshrc
+
 

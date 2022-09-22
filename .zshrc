@@ -4,6 +4,11 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/austin.reifsteck/.oh-my-zsh"
 
+# set default editor to neovim
+PATH_TO_EDITOR=/opt/homebrew/bin/nvim
+export EDITOR=$PATH_TO_EDITOR
+export VISUAL=$PATH_TO_EDITOR
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -118,7 +123,7 @@ export PGDATA=$HOME/Documents/pgdata
 alias el=elixir
 alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Command}}\t{{.Image}}"'
 alias mt="mix test"
-alias mtw="fswatch lib test mix test --listen-on-stdin"
+alias mtw="fswatch lib test | mix test --listen-on-stdin"
 alias vim=nvim
 
 ZSH_THEME=""
