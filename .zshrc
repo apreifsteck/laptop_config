@@ -4,8 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/austin.reifsteck/.oh-my-zsh"
 
-# set default editor to neovim
-PATH_TO_EDITOR=/opt/homebrew/bin/nvim
+# set default editor to helix
+PATH_TO_EDITOR=/opt/homebrew/bin/hx
 export EDITOR=$PATH_TO_EDITOR
 export VISUAL=$PATH_TO_EDITOR
 
@@ -99,6 +99,18 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export PGDATA=$HOME/Documents/pgdata
+
+
+# RUBY gems
+export PATH=$PATH:/Users/austin.reifsteck/.gem/ruby/2.6.0/bin
+# Rust tools
+export PATH=$PATH:/Users/austin.reifsteck/.asdf/installs/rust/1.66.0/bin
+# Add homebrew stuff
+export PATH=$PATH:/opt/homebrew/bin
+
+
+export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -125,9 +137,22 @@ alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Com
 alias mt="mix test"
 alias mtw="fswatch lib test | mix test --listen-on-stdin"
 alias vim=nvim
+alias sorm=sea-orm-cli
+alias tilt=/opt/homebrew/bin/tilt
 
 ZSH_THEME=""
 
 autoload -U promptinit; promptinit
 prompt pure
 
+# For ephemeral environments
+function kat() {
+  KAT_IMAGE=${KAT_IMAGE:-registry.cmmint.net/platform/kat:latest}
+  # Auto-update, but only check once every 48h
+  [[ ! -f $HOME/.kat-update-check || $(find $HOME/.kat-update-check -type f -mtime +48h) ]] && docker pull $KAT_IMAGE && touch $HOME/.kat-update-check
+  docker run -it --rm -e "USER=${USER}" -v "${HOME}/.kube:/kube" $KAT_IMAGE "$@"
+}
+
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

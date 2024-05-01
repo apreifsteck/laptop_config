@@ -5,7 +5,9 @@ apps:
     - rectangle: https://rectangleapp.com/
     - docker desktop: https://www.docker.com/products/docker-desktop
     - postman: https://www.postman.com/downloads/
-    - pgAdmin4: https://www.pgadmin.org/download/pgadmin-4-macos/
     - Miro: https://miro.com/apps/
-    - clickup: https://desktop.clickup.com/mac/dmg/arm64
     - slack: https://slack.com/downloads/mac
+    - postico: https://releases.eggerapps.at/postico2/download
+    - obsidian: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.12/Obsidian-1.5.12-universal.dmg
+    - kitty: https://sw.kovidgoyal.net/kitty/binary/
+    - arc: https://releases.arc.net/release/Arc-latest.dmg
