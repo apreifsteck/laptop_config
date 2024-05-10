@@ -54,11 +54,10 @@ packages=(
     "z"
     "trash"
     "pure"
-    "neovim"
     "postgresql"
     "ripgrep"
     "fswatch"
-    "fish"
+    "helix"
 )
 
 for package in "${packages[@]}"

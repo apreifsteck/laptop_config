@@ -6,7 +6,7 @@ export PATH=$PATH:/usr/local/Cellar/rust-analyzer/2023-07-10/bin/rust-analyzer
 export ZSH="/Users/austinreifsteck/.oh-my-zsh"
 
 # set default editor to helix
-PATH_TO_EDITOR=/usr/local/bin/hx
+PATH_TO_EDITOR=/opt/homebrew/bin/hx
 export EDITOR=$PATH_TO_EDITOR
 export VISUAL=$PATH_TO_EDITOR
 
@@ -100,7 +100,13 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export PGDATA=$HOME/Documents/pgdata
-export ERL_AFLAGS="-kernel shell_history enabled"
+
+# Add homebrew stuff
+export PATH=$PATH:/opt/homebrew/bin
+
+
+export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -127,9 +133,21 @@ alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Com
 alias mt="mix test"
 alias mtw="fswatch lib test | mix test --listen-on-stdin"
 alias vim=nvim
+alias tilt=/opt/homebrew/bin/tilt
 
 ZSH_THEME=""
 
 autoload -U promptinit; promptinit
 prompt pure
 
+# For ephemeral environments
+function kat() {
+  KAT_IMAGE=${KAT_IMAGE:-registry.cmmint.net/platform/kat:latest}
+  # Auto-update, but only check once every 48h
+  [[ ! -f $HOME/.kat-update-check || $(find $HOME/.kat-update-check -type f -mtime +48h) ]] && docker pull $KAT_IMAGE && touch $HOME/.kat-update-check
+  docker run -it --rm -e "USER=${USER}" -v "${HOME}/.kube:/kube" $KAT_IMAGE "$@"
+}
+
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
