@@ -1,11 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/Cellar/rust-analyzer/2023-07-10/bin/rust-analyzer 
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/austin.reifsteck/.oh-my-zsh"
+export ZSH="/Users/austinreifsteck/.oh-my-zsh"
 
-# set default editor to neovim
-PATH_TO_EDITOR=/opt/homebrew/bin/nvim
+# set default editor to helix
+PATH_TO_EDITOR=/usr/local/bin/hx
 export EDITOR=$PATH_TO_EDITOR
 export VISUAL=$PATH_TO_EDITOR
 
@@ -99,6 +100,7 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export PGDATA=$HOME/Documents/pgdata
+export ERL_AFLAGS="-kernel shell_history enabled"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 

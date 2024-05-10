@@ -110,6 +110,14 @@ cd fonts
 cd ..
 rm -rf fonts
 
+# install a couple of zsh plugins
+echo "Installing zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+echo "Installing zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+
+
 prog_name="pip3"
 if ! program_in_path $prog_name; then
     echo "installing python before attempting to install pygments"
