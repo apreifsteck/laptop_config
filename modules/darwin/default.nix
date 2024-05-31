@@ -20,11 +20,11 @@
   system.stateVersion = 4;
 
   # Set macOS defaults (https://github.com/LnL7/nix-darwin/tree/master/modules/system/defaults)
-  system.defaults.NSGlobalDomain.InitialKeyRepeat = 25;
+  system.defaults.NSGlobalDomain.InitialKeyRepeat = 12;
   system.defaults.NSGlobalDomain.KeyRepeat = 2;
-  system.defaults.NSGlobalDomain.AppleInterfaceStyleSwitchesAutomatically =
-    true;
-
+  system.defaults.NSGlobalDomain.AppleShowAllFiles = true; # shows hidden files
+  system.defaults.NSGlobalDomain.AppleInterfaceStyle = "Dark";
+  
   system.defaults.dock.autohide = true;
   system.defaults.dock.mru-spaces = false;
   system.defaults.dock.orientation = "bottom";

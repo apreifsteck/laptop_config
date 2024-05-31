@@ -16,7 +16,7 @@
     font = {
       package = pkgs.nerdfonts;
       name = "Fira Code Nerd Font";
-      size = 18;
+      size = 20;
     };
 
     theme = "Ayu Mirage";

@@ -2,6 +2,13 @@
 let user = "austinreifsteck";
 in {
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
+
   users.users.${user} = { 
     home = "/Users/austinreifsteck";
   };
@@ -29,14 +36,10 @@ in {
     # environment.
     imports = [
       ./kitty.nix
-      # ./helix.nix
+      ./helix.nix
     ];
     
     home.packages = [
-      # # Adds the 'hello' command to your environment. It prints a friendly
-      # # "Hello, world!" when run.
-      # pkgs.hello
-
       # # It is sometimes useful to fine-tune packages, for example, by applying
       # # overrides. You can do that directly here, just don't forget the
       # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -49,7 +52,12 @@ in {
       # (pkgs.writeShellScriptBin "my-hello" ''
       #   echo "Hello, ${config.home.username}!"
       # '')
-      # pkgs.kitty
+      pkgs.spotify
+      pkgs.obsidian
+      pkgs.arc-browser
+      pkgs.slack
+      pkgs.postman
+      pkgs.rectangle
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -79,8 +87,6 @@ in {
     #  /etc/profiles/per-user/austinreifsteck/etc/profile.d/hm-session-vars.sh
     #
     home.sessionVariables = {
-      EDITOR = "hx";
-      RANDOM = "foo";
     };
 
     home.activation = lib.mkIf pkgs.stdenv.isDarwin {

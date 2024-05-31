@@ -1,13 +1,5 @@
 apps:
     - 1Password: https://downloads.1password.com/mac/1Password.zip
-    - spotify: https://www.spotify.com/us/download/mac/
     - eqMac: https://eqmac.app/
-    - rectangle: https://rectangleapp.com/
-    - docker desktop: https://www.docker.com/products/docker-desktop
-    - postman: https://www.postman.com/downloads/
-    - Miro: https://miro.com/apps/
-    - slack: https://slack.com/downloads/mac
+    - alfred: https://cachefly.alfredapp.com/Alfred_5.5_2257.dmg
     - postico: https://releases.eggerapps.at/postico2/download
-    - obsidian: https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.12/Obsidian-1.5.12-universal.dmg
-    - kitty: https://sw.kovidgoyal.net/kitty/binary/
-    - arc: https://releases.arc.net/release/Arc-latest.dmg
