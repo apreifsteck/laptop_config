@@ -37,6 +37,7 @@ in {
     imports = [
       ./kitty.nix
       ./helix.nix
+      ./git.nix
     ];
     
     home.packages = [
@@ -58,6 +59,7 @@ in {
       pkgs.slack
       pkgs.postman
       pkgs.rectangle
+      pkgs.devenv
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage

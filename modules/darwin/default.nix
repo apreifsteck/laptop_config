@@ -15,6 +15,14 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
 
+  programs.direnv = {
+    # enableZshIntegration = true;
+    enable = true;
+    nix-direnv = {
+      enable = true;
+    };
+  };
+
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
@@ -31,4 +39,5 @@
   system.defaults.dock.showhidden = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = ["root" "austinreifsteck"];
 }
