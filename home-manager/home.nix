@@ -10,8 +10,11 @@ in {
   };
 
   users.users.${user} = { 
-    home = "/Users/austinreifsteck";
+    home = "/Users/${user}";
   };
+
+  nix.settings.trusted-users = ["root" user];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -38,6 +41,9 @@ in {
       ./kitty.nix
       ./helix.nix
       ./git.nix
+      ./zsh.nix
+      ./zoxide.nix
+      ./starship.nix
     ];
     
     home.packages = [
@@ -60,6 +66,7 @@ in {
       pkgs.postman
       pkgs.rectangle
       pkgs.devenv
+      # pkgs.pure-prompt
     ];
 
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -89,6 +96,7 @@ in {
     #  /etc/profiles/per-user/austinreifsteck/etc/profile.d/hm-session-vars.sh
     #
     home.sessionVariables = {
+      ERL_AFLAGS = "-kernel shell_history enabled";
     };
 
     home.activation = lib.mkIf pkgs.stdenv.isDarwin {

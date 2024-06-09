@@ -1,4 +1,3 @@
-
 { pkgs, ... }: {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -37,7 +36,4 @@
   system.defaults.dock.mru-spaces = false;
   system.defaults.dock.orientation = "bottom";
   system.defaults.dock.showhidden = true;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.trusted-users = ["root" "austinreifsteck"];
 }
