@@ -44,6 +44,7 @@ in {
       ./zsh.nix
       ./zoxide.nix
       ./starship.nix
+      ./mcfly.nix
     ];
     
     home.packages = [

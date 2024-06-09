@@ -8,6 +8,9 @@ in {
       format = "$all";
       palette = "catppuccin_${flavor}";
       directory = { style = "bold lavender"; };
+      aws = {
+        disabled = true;
+      };
     } // builtins.fromTOML (builtins.readFile (pkgs.fetchFromGitHub {
       owner = "catppuccin";
       repo = "starship";
