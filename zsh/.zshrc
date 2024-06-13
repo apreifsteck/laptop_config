@@ -101,6 +101,11 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 export PGDATA=$HOME/Documents/pgdata
 
+
+# RUBY gems
+export PATH=$PATH:/Users/austin.reifsteck/.gem/ruby/2.6.0/bin
+# Rust tools
+export PATH=$PATH:/Users/austin.reifsteck/.asdf/installs/rust/1.79.0/bin
 # Add homebrew stuff
 export PATH=$PATH:/opt/homebrew/bin
 
@@ -151,3 +156,5 @@ function kat() {
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+source /Users/austin.reifsteck/.config/broot/launcher/bash/br
