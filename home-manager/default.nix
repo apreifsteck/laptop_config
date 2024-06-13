@@ -31,6 +31,7 @@
       pkgs.postman
       pkgs.rectangle
       pkgs.devenv
+      pkgs.atac
     ];
 
     # # Home Manager is pretty good at managing dotfiles. The primary way to manage
