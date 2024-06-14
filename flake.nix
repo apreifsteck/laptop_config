@@ -23,7 +23,7 @@
           modules = [
             home-manager.darwinModules.home-manager
             ./modules/darwin
-            ./home-manager/home.nix
+            ./hosts/home.nix
           ];
         };
       };

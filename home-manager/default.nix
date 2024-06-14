@@ -49,6 +49,7 @@
       #   org.gradle.console=verbose
       #   org.gradle.daemon.idletimeout=3600000
       # '';
+      ".obsidian.vimrc".source = ../.obsidian.vimrc;
     };
 
     # # Home Manager can also manage your environment variables through

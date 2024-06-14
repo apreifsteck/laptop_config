@@ -26,6 +26,15 @@ in {
     home.username = user;
     home.homeDirectory = "/Users/${user}";
 
+    programs.git.extraConfig = {
+      user = {
+        name = "Austin Reifsteck";
+        email = "apreifsteck@gmail.com"; 
+      };
+    };
+
+    home.file.".obsidian.vimrc".target = "Documents/personal/General/.obsidian.vimrc";
+
     # This value determines the Home Manager release that your configuration is
     # compatible with. This helps avoid breakage when a new Home Manager release
     # introduces backwards incompatible changes.
@@ -36,7 +45,7 @@ in {
     home.stateVersion = "23.11"; # Please read the comment before changing.
 
     imports = [
-      ./default.nix
+      ../home-manager/default.nix
     ];
   };
 }

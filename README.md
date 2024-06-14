@@ -14,3 +14,5 @@ A repo with all the files needed to configure a new laptop
   nix build .#darwinConfigurations.Austins-MacBook-Pro.system
   ./result/sw/bin/darwin-rebuild switch --flake .
 ```
+
+You might have to go to the settings and allow Kitty to access all files on disk
