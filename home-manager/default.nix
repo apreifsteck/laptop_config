@@ -9,6 +9,7 @@
       ./zoxide.nix
       ./starship.nix
       ./mcfly.nix
+      ./broot.nix
     ];
     
     home.packages = [
@@ -32,6 +33,7 @@
       pkgs.rectangle
       pkgs.devenv
       pkgs.atac
+      pkgs.tldr
     ];
 
     # # Home Manager is pretty good at managing dotfiles. The primary way to manage
