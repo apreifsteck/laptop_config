@@ -15,4 +15,9 @@ A repo with all the files needed to configure a new laptop
   ./result/sw/bin/darwin-rebuild switch --flake .
 ```
 
+## TODO
+- [ ] Set scroll direction (turn off "natural scrolling")
+- [ ] Put github into your known hosts
+- [ ] Load ssh keys into the keychain by default
+
 You might have to go to the settings and allow Kitty to access all files on disk

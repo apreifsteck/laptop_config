@@ -8,6 +8,9 @@
       editor = {
         bufferline = "always";
         "auto-save" = true;
+        file-picker = {
+          hidden = false;
+        };
       };
 
       editor.statusline = {

@@ -8,6 +8,10 @@
       st = "status";
     };
 
+    extraConfig = {
+      push.autoSetupRemote = true;
+    };
+
     ignores = [
       ".devenv*"
       "devenv*"
