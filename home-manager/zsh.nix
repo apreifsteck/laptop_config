@@ -11,6 +11,10 @@
       ];
     };
 
+    shellAliases = {
+      ls = "eza";
+    };
+
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
   };
