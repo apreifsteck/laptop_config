@@ -3,6 +3,7 @@
     # environment.
     imports = [
       ./kitty.nix
+      ./wezterm.nix
       ./helix.nix
       ./git.nix
       ./zsh.nix
@@ -36,6 +37,7 @@
       pkgs.tldr
       pkgs.asdf-vm
       pkgs.eza
+      pkgs.gitui
     ];
 
     # # Home Manager is pretty good at managing dotfiles. The primary way to manage
