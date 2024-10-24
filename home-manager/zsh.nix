@@ -17,6 +17,9 @@
 
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
+
+    # Start fish whenever we enter zsh
+    initExtra = "fish";
   };
 }
 

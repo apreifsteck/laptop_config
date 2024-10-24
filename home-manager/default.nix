@@ -6,6 +6,7 @@
       ./helix.nix
       ./git.nix
       ./zsh.nix
+      ./fish.nix
       ./zoxide.nix
       ./starship.nix
       ./mcfly.nix
